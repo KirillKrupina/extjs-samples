@@ -28,12 +28,19 @@ Ext.onReady(function(){
         },{
           xtype: 'label',
           name: 'label1',
-          html: 'I am lable'
+          html: 'I`m label'
         }],
         buttons: [{
             text: 'submit',
             handler: function(){
-                formPanel1.getForm().submit();
+                var form = formPanel1.getForm();
+                
+                
+                // Application.Helper.setFieldLabel = function(field, label){
+                //     if(field.label){
+                //         field.label.update(valueFromField1);
+                //     }
+                // };
             }
         },
             {
