@@ -93,13 +93,21 @@ Ext.onReady(function(){
         width: 350,
         shadow: false,
         items:[fp],
-        buttons:[{
-            text: 'Submit',
-            handler: function(){
-                var formValues = fp.getForm().getValues();
-                console.log(formValues);
+        buttons:[
+            {
+                text: 'Submit',
+                handler: function(){
+                    var formValues = fp.getForm().getValues();
+                    console.log(formValues);
             }
-        }]
+            },
+            {
+                text: 'Reset',
+                handler: function(){
+                    fp.getForm().reset();
+                }
+            }
+    ]
     });
 
     win.show();
