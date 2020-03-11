@@ -27,7 +27,32 @@ App.run = function () {
                   var win3 = App.accordionSample.createAccordionSample();
                   win3.show();
               }
-          }
+          },
+          {
+              xtype: 'button',
+              text: 'Create Layout Absolute',
+              handler: function () {
+                  var win4 = App.AbsoluteLayoutSample.createAbsoluteLayout();
+                  win4.show();
+              }
+          },
+          {
+              xtype: 'button',
+              text: 'Create Layout Column',
+              handler: function () {
+                  var win5 = App.columnLayoutSample.createColumnLayout();
+                  win5.show();
+              }
+          },
+          {
+              xtype: 'button',
+              text: 'Create Layout Vbox',
+              handler: function () {
+                  var win6 = App.vBoxLayoutSample.createVBoxLayoutWindow();
+                  win6.show();
+              }
+          },
+
           ]
   });
     myWin.show();
