@@ -52,6 +52,22 @@ App.run = function () {
                   win6.show();
               }
           },
+          {
+              xtype: 'button',
+              text: 'Create Layout Hbox',
+              handler: function () {
+                  var win7 = App.hboxLayoutSample.createHBoxLayoutWindow();
+                  win7.show();
+              }
+          },
+          {
+              xtype: 'button',
+              text: 'Create Layout Border',
+              handler: function () {
+                  var win8 = App.borderLayoutSample.createBorderLayoutWindow();
+                  win8.show();
+              }
+          },
 
           ]
   });
