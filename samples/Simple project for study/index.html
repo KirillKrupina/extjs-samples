@@ -25,19 +25,44 @@
 <script src="js/App.js"></script>
 <script>
     Ext.onReady(function () {
+       Ext.create({
+           xtype: 'viewport',
+           layout: 'fit',
+           items: [{
+               xtype: 'panel',
+               style: {
+                   backgroundColor: 'green'
+               },
+               items: [
+                   {
+                       xtype: 'button',
+                       text: 'Start App',
+                       handler: function(){
+                           App.run();
+                       }
+                   }
+               ]
+           }]
+       });
+
+
         Ext.create({
-            xtype: 'panel',
-            html: 'Test2',
-            renderTo: '123'
+            xtype: 'tabpanel',
+            renderTo: Ext.getBody(),
+            items: [
+                {
+                    title: 'Title 1',
+                    html: 'Text 1'
+                },
+                {
+                    title: 'Title 2',
+                    html: 'Text 2'
+                }
+            ]
         });
 
-        Ext.create({
-            xtype: 'panel',
-            html: 'Test2',
-            height: 100,
-        }).show();
 
-        App.run();
+
     })
 </script>
 </body>

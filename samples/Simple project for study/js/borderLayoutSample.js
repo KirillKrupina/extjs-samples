@@ -12,6 +12,24 @@ App.borderLayoutSample.createBorderLayoutWindow = function () {
                 title: 'Central panel',
                 html: 'Central panel',
                 region: 'center',
+                items: [
+                    {
+                        xtype: 'panel',
+                        layout: 'hbox',
+                        title: 'Panel in central panel',
+                        items: [
+                            {
+                                xtype: 'textfield',
+                                flex: 1
+                            },
+                            {
+                                xtype: 'button',
+                                text: '...',
+                                width: 30
+                            }
+                        ]
+                    }
+                ]
 
             },
             {

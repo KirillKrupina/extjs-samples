@@ -6,24 +6,24 @@ App.hboxLayoutSample.createHBoxLayoutWindow = function () {
         height: 200,
         layout: {
             type: 'hbox',
-            align: 'stretch',
-            pack: 'center'
+           // align: 'stretch',
+           // pack: 'center'
         },
         items: [
             {
                 xtype: 'panel',
                 title: 'First Panel',
-                width: 100,
+                flex: 1
             },
             {
                 xtype: 'panel',
                 title: 'Second Panel',
-                width: 50,
+                flex: 0
             },
             {
                 xtype: 'panel',
                 title: 'Third Panel',
-                width: 80,
+                flex: 1
             },
 
         ]

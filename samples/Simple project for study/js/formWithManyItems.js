@@ -9,17 +9,20 @@ App.Module1.createFormWithManyItems = function(){
                 {
                     xtype: 'textfield',
                     fieldLabel: 'First name',
-                    name: 'first-name'
+                    name: 'first-name',
+                    allowBlank: false
                 },
                 {
                     xtype: 'textfield',
                     fieldLabel: 'Middle name',
-                    name: 'middle-name'
+                    name: 'middle-name',
+                    allowBlank: false
                 },
                 {
                     xtype: 'textfield',
                     fieldLabel: 'Last name',
-                    name: 'last-name'
+                    name: 'last-name',
+                    allowBlank: false
                 },
                 {
                     xtype: 'radiogroup',
@@ -78,7 +81,8 @@ App.Module1.createFormWithManyItems = function(){
                 {
                     xtype: 'textfield',
                     fieldLabel: 'Country',
-                    name: 'birth-country'
+                    name: 'birth-country',
+                    allowBlank: false
                 }
             ]
         }
@@ -106,7 +110,15 @@ App.Module1.createFormWithManyItems = function(){
         ulr: '/myController/save',
         layout: 'form',
         frame: true,
-        items: [fullNameBlock, dateAndCity, otherInformation]
+        items: [fullNameBlock, dateAndCity, otherInformation],
+        monitorValid: true,
+        buttons: [
+            {
+                text: 'OK',
+                formBind: true,
+
+            }
+        ]
     });
 
     var win = Ext.create( {
@@ -124,9 +136,6 @@ App.Module1.createFormWithManyItems = function(){
             {
                 text: 'Submit',
                 handler: function(){
-
-
-
                     var field = fp.getForm().findField('first-name');
                     console.log(field);
 
