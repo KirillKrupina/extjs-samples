@@ -1,5 +1,5 @@
 Ext.onReady(function() {
-  
+
 
 
     var formPanel1 = new Ext.form.FormPanel({
@@ -13,19 +13,19 @@ Ext.onReady(function() {
             {
                 xtype: 'textarea',
                 fieldLabel: 'Text Area'
-                
+
             },
             {
                 xtype: 'numberfield',
-                fieldLabel: 'Number Field' 
+                fieldLabel: 'Number Field'
             },
             {
                 xtype: 'sliderfield',
-                fieldLabel: 'Slider Field' 
+                fieldLabel: 'Slider Field'
             },
             {
                 xtype: 'displayfield',
-                fieldLabel: 'Display Field', 
+                fieldLabel: 'Display Field',
                 value: '10'
             },
             {
@@ -35,7 +35,7 @@ Ext.onReady(function() {
             {
                 xtype: 'datefield',
                 fieldLabel: 'Date Field',
-                format: ''                  // d - only days, 
+                format: 'd'                  // d - only days,
             },
             {
                 xtype: 'checkbox',
@@ -64,7 +64,7 @@ Ext.onReady(function() {
                     {boxLabel: 'Item 2', name: 'rb-group-2', inputValue: 2},
                     {boxLabel: 'Item 3', name: 'rb-group-3', inputValue: 3},
                     {boxLabel: 'Item 4', name: 'rb-group-4', inputValue: 4},
-                    
+
                 ]
             },
         ]

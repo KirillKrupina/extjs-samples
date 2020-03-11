@@ -3,16 +3,16 @@ Ext.onReady(function(){
 
     var win = new Ext.Window({
          title: "title",
-         
+
     });
- 
+
   win.show();
  });
 
 
 Ext.onReady(function(){
 
-    
+
 
     var formPanel1 = new Ext.form.FormPanel({
         url: '/form1save',
@@ -34,13 +34,9 @@ Ext.onReady(function(){
             text: 'submit',
             handler: function(){
                 var form = formPanel1.getForm();
-                
-                
-                // Application.Helper.setFieldLabel = function(field, label){
-                //     if(field.label){
-                //         field.label.update(valueFromField1);
-                //     }
-                // };
+
+
+
             }
         },
             {
@@ -48,7 +44,7 @@ Ext.onReady(function(){
                 handler: function(){
                     formPanel1.getForm().findField('form1field1').setValue('');
                 }
-            }    
+            }
     ]
     });
 
@@ -101,7 +97,7 @@ new Ext.Panel({
           this.y = pel.getTop(true);
 
 
-         
+
       },
 
 //      Called on the mouseup event.

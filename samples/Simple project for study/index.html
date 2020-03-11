@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../3.4.0.full/resources/css/ext-all.css">
+    <script type="text/javascript" src="../../3.4.0.full/adapter/ext/ext-base-debug.js"></script>
+    <script type="text/javascript" src="../../3.4.0.full/ext-all-debug.js"></script>
+    <title>Document</title>
+</head>
+<body>
+
+<div id="123" style="border: red 1px solid">
+    Test
+</div>
+
+<script src="js/formWithManyItems.js"></script>
+<script src="js/createLayoutFit.js"></script>
+<script src="js/accordionSample.js"></script>
+<script src="js/App.js"></script>
+<script>
+    Ext.onReady(function () {
+        Ext.create({
+            xtype: 'panel',
+            html: 'Test2',
+            renderTo: '123'
+        });
+
+        Ext.create({
+            xtype: 'panel',
+            html: 'Test2',
+            height: 100,
+        }).show();
+
+        App.run();
+    })
+</script>
+</body>
+</html>
