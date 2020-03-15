@@ -85,23 +85,26 @@
 
 //------------------------------------------------------------------------------------
 
-// var MyPanel = Ext.extend(Ext.Panel, {
-//     items: [{
-//         xtype: 'grid'
-//     }]
-// });
+var MyPanel = Ext.extend(Ext.Panel, {
+    items: [{
+        xtype: 'grid'
+    }]
+});
 
 var MyPanel = Ext.extend(Ext.Panel, {
     initComponent: function () {
         Ext.applyIf(this, {
-
+            title: 'TitleWithApply',
             items: [{
-
+                textField: '123',
+                labelField: 'name'
             }],
         });
 
-        MyPanel.superclass.initComponent.apply(this);
+        MyPanel.superclass.initComponent.call(this);
         console.log(this);
+
+
     },
     log: function () {
         console.log(this);
@@ -110,6 +113,7 @@ var MyPanel = Ext.extend(Ext.Panel, {
 
 });
 
+
 var myPan = new MyPanel({
     title: 'myPan',
 });
@@ -117,7 +121,30 @@ var myPan = new MyPanel({
 myPan.log.call(this);
 
 
+var myPan2 = new MyPanel({
+    title: 'myPan2',
+});
+
+myPan2.log.call(this);
 
 
 
+// function User(name,age){
+//     this.name = name;
+//     this.age = age;
+// }
+// var tom = new User('Tom', 26);
+// function dispaly() {
+//     console.log(this.name);
+// }
 
+// dispaly.call(tom);
+
+Ext.override(MyPanel, {
+    log: function() {
+        console.log('Overriding method');
+
+    }
+});
+
+myPan.log();
