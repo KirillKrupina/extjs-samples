@@ -24,7 +24,7 @@ Ext.onReady(function () {
         stripeRows: true,
         height: 350,
         width: 600,
-        stateful: true,
+        //stateful: true,
         columns: [
             {
                 id       :'company',
