@@ -104,6 +104,7 @@ var MyPanel = Ext.extend(Ext.Panel, {
     log: function () {
         console.log(this);
     }
+
 });
 
 var ClassLog = Ext.extend(Ext.util.Observable, {
@@ -114,8 +115,9 @@ var ClassLog = Ext.extend(Ext.util.Observable, {
 
 var ClassLogFormated = Ext.extend(ClassLog, {
     log: function (obj) {
-        var strName = obj.name +  ' ' + obj.surname;
-        ClassLogFormated.superclass.log.call(this, strName);
+        var strName = obj.name;
+        var strSurname = obj.surname;
+        ClassLogFormated.superclass.log.call(this, strName + ' ' +strSurname);
     }
 });
 
