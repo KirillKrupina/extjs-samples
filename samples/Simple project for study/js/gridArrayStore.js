@@ -51,7 +51,7 @@ Ext.onReady(function () {
                 header   : '% Change',
                 width    : 75,
                 sortable : true,
-               renderer : 'pctChange',
+                renderer : 'pctChange',
                 dataIndex: 'pctChange'
             },
             {

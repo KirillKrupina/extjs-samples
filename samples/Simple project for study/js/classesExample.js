@@ -121,60 +121,52 @@ var ClassLogFormated = Ext.extend(ClassLog, {
     }
 });
 
-var exClassLog = new ClassLogFormated();
-exClassLog.log({
-    name: 'Oleg',
-    surname: 'Ivanov'
-});
-var exClassLog2 = new ClassLog();
-exClassLog2.log({
-    name: 'Ivan',
-    surname: 'Ivanov'
+
+
+var myPan = new MyPanel({
+    title: 'myPan',
 });
 
-// var myPan = new MyPanel({
-//     title: 'myPan',
-// });
-//
-// myPan.log.call(this);
-//
-//
-// var myPan2 = new MyPanel({
-//     title: 'myPan2',
-// });
-//
-// myPan2.log.call(this);
+myPan.log.call(this);
 
 
-//
-// function User(name,age){
-//     this.name = name;
-//     this.age = age;
-// }
-// var tom = new User('Tom', 26);
-// function dispaly() {
-//     console.log(this.name);
-// }
-//
-// dispaly.call(tom);
+var myPan2 = new MyPanel({
+    title: 'myPan2',
+});
 
-// Ext.override(MyPanel, {
-//     initComponent: function(){
-//         Ext.apply(this, {
-//             title: 'overrided title',
-//         });
-//
-//         this.callParent();
-//     },
-//     log: function() {
-//         console.log('Overriding method');
-//     }
-// });
-// myPan.log();
-//
-// var myPan3 = new MyPanel();
-//
-//
+myPan2.log.call(this);
+
+
+
+function User(name,age){
+    this.name = name;
+    this.age = age;
+}
+var tom = new User('Tom', 26);
+function dispaly() {
+    console.log(this.name);
+}
+
+dispaly.call(tom);
+
+Ext.override(MyPanel, {
+    initComponent: function(){
+        Ext.apply(this, {
+            title: 'overrided title',
+        });
+
+        MyPanel.superclass.initComponent.call(this);
+    },
+    log: function() {
+        console.log(this, 'Overriding method');
+    }
+});
+myPan.log();
+
+var myPan3 = new MyPanel();
+myPan3.log();
+
+
 //
 // animal = {
 //     voice: function () {
@@ -191,3 +183,15 @@ exClassLog2.log({
 // animal.voice();
 // dog.voice();
 // dog.voice.call(this);
+
+
+var exClassLog = new ClassLogFormated();
+exClassLog.log({
+    name: 'Oleg',
+    surname: 'Ivanov'
+});
+var exClassLog2 = new ClassLog();
+exClassLog2.log({
+    name: 'Ivan',
+    surname: 'Ivanov'
+});
