@@ -1,5 +1,6 @@
 Ext.ns('App.Window');
 
+
 App.Window = Ext.extend(Ext.Window, {
     layout: 'fit',
     width: 400,
@@ -42,10 +43,21 @@ App.Window = Ext.extend(Ext.Window, {
                     xtype: 'button',
                     text: 'Button',
                     scope: this,
-                    handler: function () {
+                    handler: function () {  
+                        Ext.override(Ext.form.Field, {
+                            setValue : function(v){
+                                v = v.toUpperCase();
+                                this.value = v;
+                                if(this.rendered){
+                                    this.el.dom.value = (Ext.isEmpty(v) ? '' : v);
+                                    this.validate();
+                                }
+                                return this;
+                            },
+                        });
                         var smallText = formPanel.getForm().findField('textfield').getValue();
-                        formPanel.getForm().findField('textfielduppercase1').setValue(smallText.toUpperCase());
-                        formPanel.getForm().findField('textfielduppercase2').setValue(smallText.toUpperCase());
+                        formPanel.getForm().findField('textfielduppercase1').setValue(smallText);
+                        formPanel.getForm().findField('textfielduppercase2').setValue(smallText);
 
 
                     }
