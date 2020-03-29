@@ -28,11 +28,14 @@ App.Window = Ext.extend(Ext.Window, {
                     xtype: 'textfielduppercaseevent',
                     fieldLabel: 'textfielduppercase 1',
                     name: 'textfielduppercase1',
+<<<<<<< HEAD
                     listeners : {
                         keyup : function(){
                             console.log('textfielduppercase1/keyup');
                         }
                     }
+=======
+>>>>>>> 0e2eeceea30274e8451daffc814cf4908d47d56c
                 },
                 {
                     xtype: 'textfielduppercaseevent',
@@ -45,11 +48,14 @@ App.Window = Ext.extend(Ext.Window, {
                     name: 'textfield'
                 },
                 {
+<<<<<<< HEAD
                     xtype: 'textfielduppercaseevent',
                     fieldLabel: 'textfielduppercase 3',
                     name: 'textfielduppercase3',
                 },
                 {
+=======
+>>>>>>> 0e2eeceea30274e8451daffc814cf4908d47d56c
                     xtype: 'button',
                     text: 'Button',
                     scope: this,

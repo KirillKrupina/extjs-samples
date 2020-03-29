@@ -3,6 +3,7 @@ Ext.ns('App.components');
 App.components.TextFieldUppercaseEvent = Ext.extend(Ext.form.TextField, {
         enableKeyEvents: true,
         initEvents: function () {
+<<<<<<< HEAD
             //this.on('keyup', this.onKeyUp1, this);
             App.components.TextFieldUppercaseEvent.superclass.initEvents.apply(this, arguments);
         },
@@ -22,6 +23,16 @@ App.components.TextFieldUppercaseEvent = Ext.extend(Ext.form.TextField, {
         //     var text = e.value.toUpperCase();
         //     this.setValue(text);
         // }
+=======
+            this.on('keyup', this.onKeyUp, this);
+            App.components.TextFieldUppercaseEvent.superclass.initEvents.apply(this, arguments);
+        },
+        onKeyUp: function (me, e) {
+            console.log(e.value);
+            var textfield = e.value.toUpperCase();
+            this.setValue(textfield);
+        }
+>>>>>>> 0e2eeceea30274e8451daffc814cf4908d47d56c
     }
 );
 
