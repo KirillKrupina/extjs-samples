@@ -24,7 +24,7 @@ Ext.onReady(function () {
         stripeRows: true,
         height: 350,
         width: 600,
-        stateful: true,
+        //stateful: true,
         columns: [
             {
                 id       :'company',
@@ -51,7 +51,7 @@ Ext.onReady(function () {
                 header   : '% Change',
                 width    : 75,
                 sortable : true,
-               renderer : 'pctChange',
+                renderer : 'pctChange',
                 dataIndex: 'pctChange'
             },
             {

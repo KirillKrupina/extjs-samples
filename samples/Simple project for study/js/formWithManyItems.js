@@ -10,7 +10,15 @@ App.Module1.createFormWithManyItems = function(){
                     xtype: 'textfield',
                     fieldLabel: 'First name',
                     name: 'first-name',
-                    allowBlank: false
+                    allowBlank: false,
+                    listeners: {
+                        blur: function () {
+                            this.setValue('blured');
+                        },
+                        focus: function () {
+                            this.setValue('focused')
+                        }
+                    }
                 },
                 {
                     xtype: 'textfield',
@@ -118,7 +126,7 @@ App.Module1.createFormWithManyItems = function(){
                 formBind: true,
 
             }
-        ]
+        ],
     });
 
     var win = Ext.create( {
@@ -136,10 +144,12 @@ App.Module1.createFormWithManyItems = function(){
             {
                 text: 'Submit',
                 handler: function(){
-                    var field = fp.getForm().findField('first-name');
+                    var field = fp.getForm().findField('first-name').getValue();
                     console.log(field);
+                    myLabel.setText(field);
 
-                    myLabel.setText(field.getValue());
+                    var form = fp.getForm().items.items;
+                    console.log(form)
 
                 }
             },

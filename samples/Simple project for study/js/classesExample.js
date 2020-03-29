@@ -85,11 +85,6 @@
 
 //------------------------------------------------------------------------------------
 
-var MyPanel = Ext.extend(Ext.Panel, {
-    items: [{
-        xtype: 'grid'
-    }]
-});
 
 var MyPanel = Ext.extend(Ext.Panel, {
     initComponent: function () {
@@ -110,8 +105,22 @@ var MyPanel = Ext.extend(Ext.Panel, {
         console.log(this);
     }
 
-
 });
+
+var ClassLog = Ext.extend(Ext.util.Observable, {
+   log: function (str) {
+       console.log(str);
+   }
+});
+
+var ClassLogFormated = Ext.extend(ClassLog, {
+    log: function (obj) {
+        var strName = obj.name;
+        var strSurname = obj.surname;
+        ClassLogFormated.superclass.log.call(this, strName + ' ' +strSurname);
+    }
+});
+
 
 
 var myPan = new MyPanel({
@@ -129,22 +138,60 @@ myPan2.log.call(this);
 
 
 
-// function User(name,age){
-//     this.name = name;
-//     this.age = age;
-// }
-// var tom = new User('Tom', 26);
-// function dispaly() {
-//     console.log(this.name);
-// }
+function User(name,age){
+    this.name = name;
+    this.age = age;
+}
+var tom = new User('Tom', 26);
+function dispaly() {
+    console.log(this.name);
+}
 
-// dispaly.call(tom);
+dispaly.call(tom);
 
 Ext.override(MyPanel, {
-    log: function() {
-        console.log('Overriding method');
+    initComponent: function(){
+        Ext.apply(this, {
+            title: 'overrided title',
+        });
 
+        MyPanel.superclass.initComponent.call(this);
+    },
+    log: function() {
+        console.log(this, 'Overriding method');
     }
 });
-
 myPan.log();
+
+var myPan3 = new MyPanel();
+myPan3.log();
+
+
+//
+// animal = {
+//     voice: function () {
+//         console.log('Animal')
+//     }
+// };
+//
+// dog = {
+//     voice: function () {
+//         console.log('Dog')
+//     }
+// };
+//
+// animal.voice();
+// dog.voice();
+// dog.voice.call(this);
+
+
+var exClassLog = new ClassLogFormated();
+exClassLog.log({
+    name: 'Oleg',
+    surname: 'Ivanov'
+});
+var exClassLog2 = new ClassLog();
+exClassLog2.log({
+    name: 'Ivan',
+    surname: 'Ivanov'
+});

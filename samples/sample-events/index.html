@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../3.4.0.full/resources/css/ext-all.css">
+    <script type="text/javascript" src="../../3.4.0.full/adapter/ext/ext-base-debug.js"></script>
+    <script type="text/javascript" src="../../3.4.0.full/ext-all-debug.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    
+
+
+    <script>
+        Ext.onReady(() => {
+           var win = Ext.create({
+                xtype: 'window',
+                height: 100,
+                width: 100,
+                items: [
+                    {
+                        xtype: 'button',
+                        text: 'Button Add Listener my-event',
+                        handler: function(){
+                            console.log('win/Add Listener my-event');
+                            win.on('my-event', () => {                   // создаём слушателя с my-event
+                                console.log('Called my-event')         
+                            }, this)
+                        }
+                    },
+                    {
+                        xtype: 'button',
+                        text: 'FireEvent my-event',
+                        handler: function() {
+                            console.log('win/FireEvent my-event');
+                            win.fireEvent('my-event');                  // fireEvent - вызывает зарегистрированных слушателей с my-event. В данном случае это win
+                        }
+                    },
+                    {
+                        xtype: 'button',
+                        text: 'Add User',
+                        handler: function(){
+                            var win2 = Ext.create({
+                                xtype: 'window',
+                                modal: true,
+                                title: 'Add new user',
+                                autoHeight: true,
+                                width: 400,
+                                items: [
+                                    new Ext.form.FormPanel({
+                                        itemId: 'form',
+                                        items: [
+                                            {
+                                                xtype: 'textfield',
+                                                name: 'Name'
+                                            },
+                                            {
+                                                xtype: 'textfield',
+                                                name: 'Middlename'
+                                            },
+                                            {
+                                                xtype: 'textfield',
+                                                name: 'Surname'
+                                            },
+                                        ],
+                                        buttons: [
+                                            {
+                                                text: 'save',
+                                                handler: function() { 
+                                                    win2.fireEvent('event-after-save', 1, win2.getComponent('form').getForm().getValues());         // Условно говорит "Передаю значения формы и ID всем, кто подписался на ивент 'event-after-save'"
+                                                    win2.close();
+                                                }
+                                            },
+                                            {
+                                                text: 'cancel',
+                                                handler: function(){
+                                                    win2.close();
+                                                }
+                                            }
+                                        ]
+                                    })
+                                ]
+                            }).show();
+                            win2.on('event-after-save', (id, formValues) => {
+                                console.log('ID: ', id , ' Values: ', formValues);          // Говорит "Я подписан/ожидаю этот ивент и параметры "
+                            })
+                            win2.on('close', () => {
+                                console.log('Win2 has been closed')
+                            })
+                        }
+                    }
+                
+                ]
+            }).show();
+            var oservable1 = new Ext.util.Observable({
+
+            });
+            oservable1.fireEvent('my-event1');
+            oservable1.on('my-event1', ()=> {
+                console.log('called my-event1');
+            });
+            oservable1.fireEvent('my-event1');
+        })
+    </script>
+</body>
+</html>
